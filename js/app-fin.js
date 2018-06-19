@@ -85,6 +85,12 @@ function startGame(){
     }
     
 }
+/* build a card display function ________________*/
+let displayCard = function (){
+    this.classList.toggle("open");
+    this.classList.toggle("show");
+    this.classList.toggle("disabled");
+};
 
 
 
