@@ -56,6 +56,36 @@ let starsList = document.querySelectorAll(".stars li");
 let matchedCard = document.getElementsByClassName("match");
 var openedCards = [];
 
+/* start game with shuffle functions_______________*/
+function shuffle(array) {
+    var currentIndex = array.length, temporaryValue, randomIndex;
+
+    while (currentIndex !== 0) {
+        randomIndex = Math.floor(Math.random() * currentIndex);
+        currentIndex -= 1;
+        temporaryValue = array[currentIndex];
+        array[currentIndex] = array[randomIndex];
+        array[randomIndex] = temporaryValue;
+    }
+
+    return array;
+};
+
+document.body.onload = startGame();
+
+function startGame(){
+    cards = shuffle(cards);
+    
+    for (var i = 0; i < cards.length; i++){
+        deck.innerHTML = "";
+        [].forEach.call(cards, function(item) {
+            deck.appendChild(item);
+        });
+        cards[i].classList.remove("show", "open", "match", "disabled");
+    }
+    
+}
+
 
 
 
