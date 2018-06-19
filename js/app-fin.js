@@ -38,7 +38,23 @@ B) Game logic !--------------------------------------------!
 ----------------------------------------------------
 ____________________________________________________
 /* _________________ the real code _______________*/
+/* deck & card variables ___________*/
+let card = document.getElementsByClassName("card");
+let cards = [...card]
+const deck = document.getElementById("card-deck");
+//console.log(cards);
 
+/* move variables ___________*/
+let moves = 0;
+let moveCounter = document.querySelector(".moves");
+
+/* star rating variables ___________*/
+const stars = document.querySelectorAll(".fa-star");
+let starsList = document.querySelectorAll(".stars li");
+
+/* match & opencards variables ___________*/
+let matchedCard = document.getElementsByClassName("match");
+var openedCards = [];
 
 
 
