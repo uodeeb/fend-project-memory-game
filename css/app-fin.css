@@ -27,6 +27,10 @@ body {
     justify-content: center;
     align-items: center;
     flex-direction: column;
+    background-image:
+	url('../img/bg01.jpg');
+	background-repeat: no-repeat;
+	background-size: cover;
 }
 
 h1 {
