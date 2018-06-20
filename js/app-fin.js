@@ -263,4 +263,7 @@ function startGame(){
     var timer = document.querySelector(".timer");
     timer.innerHTML = "0 mins 0 secs";
     clearInterval(interval);
+    
+
+   
 }

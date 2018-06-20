@@ -17,36 +17,42 @@ body {
 }
 
 body {
-    background: #ffffff url('../img/geometry2.png'); /* Background pattern from Subtle Patterns */
+    
     font-family:'Abel', sans-serif;
-	
+	font-size: 20px;
 }
-
+h1 {
+	color: #fff;
+	 
+    animation-name: rubberBand;
+	animation-timing-function: ease;
+    animation-duration: 1s;
+    animation-iteration-count: infinite;
+    animation-direction: alternate-reverse;
+}
 .container {
     display: flex;
     justify-content: center;
     align-items: center;
     flex-direction: column;
-    background-image:
-	url('../img/bg01.jpg');
+    background-image:url('../img/2.jpg');
 	background-repeat: no-repeat;
 	background-size: cover;
 }
 
-h1 {
-   
-    font-weight: 300;
-}
+
 
 /*
  * Styles for the deck of cards
  */
 
 .deck {
-    width: 660px;
-    min-height: 680px;
-    background: linear-gradient(160deg, #02ccba 0%, #aa7ecd 100%, 0.35);
-    padding: 25px;
+    width:500PX;
+    min-height: 500px;
+    //background: #666600;
+	background: rgba(51, 51, 0, 0.5);
+    //opacity: 0.75;
+	padding: 25px;
     border-radius: 10px;
     box-shadow: 12px 15px 20px 0 rgba(0, 0, 0, 0.5);
     display: flex;
@@ -54,12 +60,14 @@ h1 {
     justify-content: space-around;
     align-items: center;
     margin: 0 0 3em;
+
 }
 
 .deck .card {
-    height: 125px;
-    width: 125px;
-    background: #2e3d49;
+	opacity: none;
+    height: 100px;
+    width: 100px;
+    //background: #2e3d49;
     font-size: 0;
     color: #ffffff;
     border-radius: 8px;
@@ -75,12 +83,12 @@ h1 {
 
 .deck .card.open {
     transform: rotateY(0);
-    background: #02b3e4;
+    background: #cc9900;
     cursor: default;
     animation-name: flipInY;
-	-webkit-backface-visibility: visible !important;
-	backface-visibility: visible !important;
-	animation-duration: .75s;
+	-webkit-backface-visibility: visible ;
+	backface-visibility: visible ;
+	animation-duration: 0.75s;
 }
 
 .deck .card.show {
@@ -89,20 +97,20 @@ h1 {
 
 .deck .card.match {
     cursor: default;
-    background: #02ccba;
+    background: rgba(51, 51, 0);
     font-size: 33px;
     	animation-name: pulse;
-	-webkit-backface-visibility: visible !important;
-	backface-visibility: visible !important;
+	-webkit-backface-visibility: visible ;
+	backface-visibility: visible ;
 	animation-duration: .75s;
 }
 
 .deck .card.unmatched {
 	animation-name: rubberBand;
-	-webkit-backface-visibility: visible !important;
-	backface-visibility: visible !important;
+	-webkit-backface-visibility: visible ;
+	backface-visibility: visible ;
 	animation-duration: .75s;
-	background: #ff80c0;
+	background: #cc9900;
 }
 
 .deck .card.disabled {
@@ -121,8 +129,9 @@ h1 {
     margin-bottom: 10px;
 	padding: 10px;
 	border-radius:15px;
-	background-color: #304152;
-    color: white;
+	color: #fff;
+	border: solid #fff 1px;
+	box-shadow: 5px 2px 20px 0 rgba(0, 0, 0, 0.5);
 }
 
 .score-panel .stars {
@@ -130,6 +139,7 @@ h1 {
     padding: 0;
     display: inline-block;
     margin: 0 5px 0 0;
+	
 }
 
 .score-panel .stars li {
@@ -143,6 +153,7 @@ h1 {
 }
 .fa-star {
 	color: #FFD700;
+	text-shadow: 2px 2px 8px #000000; 
 }
 
 .timer {
@@ -213,6 +224,7 @@ text-align: center;
   font-size: 1em;  
   text-align: center;
   color: #FFD700;
+  text-shadow: 2px 2px 8px #000000; 
 }
 
 .content-2 {
@@ -223,8 +235,8 @@ text-align: center;
 }
 
 .show {
-	visibility: visible !important;
-	opacity: 100 !important;
+	visibility: visible ;
+	opacity: 100 ;
 }
 
 #starRating li {
@@ -312,4 +324,20 @@ text-align: center;
 	to {
 		transform: scale3d(1, 1, 1);
 	}
+}
+ /* footer 
+ */
+footer{
+  width:absolute;
+  
+  border-radius: 15px;
+  
+  
+}
+.s-icon {
+ display:inline;
+ padding: 10px;
+       box-shadow: 5px 2px 20px 0 rgba(255, 255, 255, 0.25);
+        width:45px;
+        height:45px;
 }
