@@ -83,7 +83,13 @@ function startGame(){
         });
         cards[i].classList.remove("show", "open", "match", "disabled");
     }
-    
+    // to reset the timer
+     second = 0;
+    minute = 0; 
+    hour = 0;
+    var timer = document.querySelector(".timer");
+    timer.innerHTML = "0 mins 0 secs";
+    clearInterval(interval);
 }
 /* build a card display function ________________*/
 let displayCard = function (){
@@ -140,5 +146,22 @@ function enable(){
         }
     });
 }
-
+/* Build a timer function ____________________ */
+let second = 0, minute = 0; hour = 0;
+let timer = document.querySelector(".timer");
+let interval;
+function startTimer(){
+    interval = setInterval(function(){
+        timer.innerHTML = minute+"mins "+second+"secs";
+        second++;
+        if(second == 60){
+            minute++;
+            second=0;
+        }
+        if(minute == 60){
+            hour++;
+            minute = 0;
+        }
+    },1000);
+}
 
