@@ -46,7 +46,7 @@ const deck = document.getElementById("card-deck");
 
 /* move variables ___________*/
 let moves = 0;
-let moveCounter = document.querySelector(".moves");
+let movesCounter = document.querySelector(".moves");
 
 /* star rating variables ___________*/
 const stars = document.querySelectorAll(".fa-star");
@@ -58,7 +58,7 @@ var openedCards = [];
 
 /* start game with shuffle functions_______________*/
 function shuffle(array) {
-    var currentIndex = array.length, temporaryValue, randomIndex;
+    let currentIndex = array.length, temporaryValue, randomIndex;
 
     while (currentIndex !== 0) {
         randomIndex = Math.floor(Math.random() * currentIndex);
@@ -76,7 +76,7 @@ document.body.onload = startGame();
 function startGame(){
     cards = shuffle(cards);
     
-    for (var i = 0; i < cards.length; i++){
+    for (let i = 0; i < cards.length; i++){
         deck.innerHTML = "";
         [].forEach.call(cards, function(item) {
             deck.appendChild(item);
@@ -84,15 +84,15 @@ function startGame(){
         cards[i].classList.remove("show", "open", "match", "disabled");
     }
     // to reset the timer
-     second = 0;
+    second = 0;
     minute = 0; 
     hour = 0;
-    var timer = document.querySelector(".timer");
+    let timer = document.querySelector(".timer");
     timer.innerHTML = "0 mins 0 secs";
     clearInterval(interval);
     // reset moves
     moves = 0;
-    counter.innerHTML = moves;
+    movesCounter.innerHTML = moves;
 }
 /* build a card display function ________________*/
 let displayCard = function (){
@@ -126,7 +126,7 @@ function unmatched(){
     openedCards.push(this);
     let arrLeng = openedCards.length;
     if(arrLeng === 2){
-        moveCounter();
+        s();
         if(openedCards[0].type === openedCards[1].type){
             matched();
         } else {
@@ -144,13 +144,15 @@ function disable(){
 function enable(){
     Array.prototype.filter.call(cards, function(card){
         card.classList.remove('disabled');
-        for(var i = 0; i < matchedCard.length; i++){
+        for(let i = 0; i < matchedCard.length; i++){
             matchedCard[i].classList.add("disabled");
         }
     });
 }
 /* Build a timer function ____________________ */
-let second = 0, minute = 0; hour = 0;
+let second = 0;
+let minute = 0;
+let hour = 0;
 let timer = document.querySelector(".timer");
 let interval;
 function startTimer(){
@@ -171,7 +173,7 @@ function startTimer(){
 /* Build a moves counter function _________________ */
 function moveCounter(){
     moves++;
-    counter.innerHTML = moves;
+    movesCounter.innerHTML = moves;
     
     if(moves == 1){
         second = 0;
@@ -210,4 +212,9 @@ else if ( moves > 23 && moves < 26){
 }
 }
 
-
+/* Add an event listener to cards ____________*/
+for (let i = 0; i < cards.length; i++){
+    card = cards[i];
+    card.addEventListener("click", displayCard);
+    card.addEventListener("click", cardOpen);
+}
