@@ -90,6 +90,9 @@ function startGame(){
     var timer = document.querySelector(".timer");
     timer.innerHTML = "0 mins 0 secs";
     clearInterval(interval);
+    // reset moves
+    moves = 0;
+    counter.innerHTML = moves;
 }
 /* build a card display function ________________*/
 let displayCard = function (){
@@ -169,11 +172,42 @@ function startTimer(){
 function moveCounter(){
     moves++;
     counter.innerHTML = moves;
-    //start timer on first click
+    
     if(moves == 1){
         second = 0;
         minute = 0; 
         hour = 0;
         startTimer();
     }
+    /* Build a star rating based on moves ________________*/
+if (moves > 8 && moves < 12){
+    for( i= 0; i < 5; i++){
+        if(i > 3){
+            stars[i].style.visibility = "collapse";
+        }
+    }
 }
+if (  moves > 13 && moves < 18 ){
+    for( i= 0; i < 5; i++){
+        if(i > 2){
+            stars[i].style.visibility = "collapse";
+        }
+    }
+}
+if ( moves > 19 && moves < 22 ){
+    for( i= 0; i < 5; i++){
+        if(i > 1){
+            stars[i].style.visibility = "collapse";
+        }
+    }
+}
+else if ( moves > 23 && moves < 26){
+    for( i= 0; i < 5; i++){
+        if(i > 0){
+            stars[i].style.visibility = "collapse";
+        }
+    }
+}
+}
+
+
