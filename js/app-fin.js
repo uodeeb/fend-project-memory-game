@@ -112,7 +112,19 @@ function unmatched(){
         openedCards = [];
     },1100);
 }
-
+ /* build an opend cards on matched function ___________*/
+ function cardOpen() {
+    openedCards.push(this);
+    let arrLeng = openedCards.length;
+    if(arrLeng === 2){
+        moveCounter();
+        if(openedCards[0].type === openedCards[1].type){
+            matched();
+        } else {
+            unmatched();
+        }
+    }
+};
 
 
 
