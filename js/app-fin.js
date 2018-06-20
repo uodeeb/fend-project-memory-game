@@ -56,44 +56,11 @@ let starsList = document.querySelectorAll(".stars li");
 let matchedCard = document.getElementsByClassName("match");
 var openedCards = [];
 
-/* start game with shuffle functions_______________*/
-function shuffle(array) {
-    let currentIndex = array.length, temporaryValue, randomIndex;
+/* winnwer message variables ___________*/
+ let modal = document.getElementById("popup1")
+ let closeicon = document.querySelector(".close");
 
-    while (currentIndex !== 0) {
-        randomIndex = Math.floor(Math.random() * currentIndex);
-        currentIndex -= 1;
-        temporaryValue = array[currentIndex];
-        array[currentIndex] = array[randomIndex];
-        array[randomIndex] = temporaryValue;
-    }
 
-    return array;
-};
-
-document.body.onload = startGame();
-
-function startGame(){
-    cards = shuffle(cards);
-    
-    for (let i = 0; i < cards.length; i++){
-        deck.innerHTML = "";
-        [].forEach.call(cards, function(item) {
-            deck.appendChild(item);
-        });
-        cards[i].classList.remove("show", "open", "match", "disabled");
-    }
-    // to reset the timer
-    second = 0;
-    minute = 0; 
-    hour = 0;
-    let timer = document.querySelector(".timer");
-    timer.innerHTML = "0 mins 0 secs";
-    clearInterval(interval);
-    // reset moves
-    moves = 0;
-    movesCounter.innerHTML = moves;
-}
 /* build a card display function ________________*/
 let displayCard = function (){
     this.classList.toggle("open");
@@ -101,6 +68,19 @@ let displayCard = function (){
     this.classList.toggle("disabled");
 };
 
+ /* build an opend cards on matched function ___________*/
+ function cardOpen() {
+    openedCards.push(this);
+    let arrLeng = openedCards.length;
+    if(arrLeng === 2){
+        moveCounter();
+        if(openedCards[0].type === openedCards[1].type){
+            matched();
+        } else {
+            unmatched();
+        }
+    }
+};
 /* build a match & unmatch function ________________*/
 function matched(){
     openedCards[0].classList.add("match", "disabled");
@@ -121,19 +101,7 @@ function unmatched(){
         openedCards = [];
     },1100);
 }
- /* build an opend cards on matched function ___________*/
- function cardOpen() {
-    openedCards.push(this);
-    let arrLeng = openedCards.length;
-    if(arrLeng === 2){
-        s();
-        if(openedCards[0].type === openedCards[1].type){
-            matched();
-        } else {
-            unmatched();
-        }
-    }
-};
+
 /* make cards enabled or disabled ___________________*/
 function disable(){
     Array.prototype.filter.call(cards, function(card){
@@ -149,26 +117,7 @@ function enable(){
         }
     });
 }
-/* Build a timer function ____________________ */
-let second = 0;
-let minute = 0;
-let hour = 0;
-let timer = document.querySelector(".timer");
-let interval;
-function startTimer(){
-    interval = setInterval(function(){
-        timer.innerHTML = minute+"mins "+second+"secs";
-        second++;
-        if(second == 60){
-            minute++;
-            second=0;
-        }
-        if(minute == 60){
-            hour++;
-            minute = 0;
-        }
-    },1000);
-}
+
 
 /* Build a moves counter function _________________ */
 function moveCounter(){
@@ -212,12 +161,27 @@ else if ( moves > 23 && moves < 26){
 }
 }
 
-/* Add an event listener to cards ____________*/
-for (let i = 0; i < cards.length; i++){
-    card = cards[i];
-    card.addEventListener("click", displayCard);
-    card.addEventListener("click", cardOpen);
+/* Build a timer function ____________________ */
+second = 0;
+minute = 0;
+hour = 0;
+let timer = document.querySelector(".timer");
+let interval;
+function startTimer(){
+    interval = setInterval(function(){
+        timer.innerHTML = minute+"mins "+second+"secs";
+        second++;
+        if(second == 60){
+            minute++;
+            second=0;
+        }
+        if(minute == 60){
+            hour++;
+            minute = 0;
+        }
+    },1000);
 }
+
 /* buils a winner message function _____________*/
 function congratulations(){
     if (matchedCard.length == 16){
@@ -245,4 +209,58 @@ function closeModal(){
 function playAgain(){
     modal.classList.remove("show");
     startGame();
+}
+/* Add an event listener to cards ____________*/
+for (let i = 0; i < cards.length; i++){
+    card = cards[i];
+    card.addEventListener("click", displayCard);
+    card.addEventListener("click", cardOpen);
+    card.addEventListener("click",congratulations);
+}
+/* start game with shuffle functions_______________*/
+function shuffle(array) {
+    let currentIndex = array.length, temporaryValue, randomIndex;
+
+    while (currentIndex !== 0) {
+        randomIndex = Math.floor(Math.random() * currentIndex);
+        currentIndex -= 1;
+        temporaryValue = array[currentIndex];
+        array[currentIndex] = array[randomIndex];
+        array[randomIndex] = temporaryValue;
+    }
+
+    return array;
+};
+
+document.body.onload = startGame();
+
+function startGame(){
+    // shuffle deck
+
+    cards = shuffle(cards);
+    // remove all exisiting classes from each card
+    for (var i = 0; i < cards.length; i++){
+        deck.innerHTML = "";
+        [].forEach.call(cards, function(item) {
+            deck.appendChild(item);
+        });
+        cards[i].classList.remove("show", "open", "match", "disabled");
+    }
+    
+
+    // reset moves
+    moves = 0;
+    movesCounter.innerHTML = moves;
+    // reset rating
+    for (let i= 0; i < stars.length; i++){
+        stars[i].style.color = "#FFD700";
+        stars[i].style.visibility = "visible";
+    }
+    //reset timer
+    second = 0;
+    minute = 0; 
+    hour = 0;
+    var timer = document.querySelector(".timer");
+    timer.innerHTML = "0 mins 0 secs";
+    clearInterval(interval);
 }
