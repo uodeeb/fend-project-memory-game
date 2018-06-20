@@ -46,7 +46,7 @@ h1 {
     width: 660px;
     min-height: 680px;
     background: linear-gradient(160deg, #02ccba 0%, #aa7ecd 100%, 0.35);
-   //padding: 32px;
+    padding: 25px;
     border-radius: 10px;
     box-shadow: 12px 15px 20px 0 rgba(0, 0, 0, 0.5);
     display: flex;
@@ -65,7 +65,7 @@ h1 {
     border-radius: 8px;
     cursor: pointer;
     display: flex;
-    justify-content: center;
+    justify-content: space-around;
     align-items: center;
     box-shadow: 5px 2px 20px 0 rgba(46, 61, 73, 0.5);
     background-color: #141154;
@@ -127,4 +127,95 @@ h1 {
     float: right;
 	display: inline-block;
 	margin: 0 1rem;
+}
+
+/*
+ * Styles for congratulations modal
+ */
+
+
+.overlay {
+	position: fixed;
+	top: 0;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	background: rgba(0, 0, 0, 0.7);
+	transition: opacity 500ms;
+	visibility: hidden;
+	opacity: 0;
+}
+
+.overlay:target {
+	visibility: visible;
+	opacity: 1;
+}
+  
+.popup {
+	margin: 70px auto;
+	padding: 20px;
+	background: #304152;
+	border-radius: 25px;
+	opacity: .75;
+	color: white;
+	border: 3px solid white;
+	width: 60%;
+	position: relative;
+	transition: all 5s ease-in-out;
+	font-family: 'abel' , san-serif;
+}
+  
+.popup h2 {
+	margin-top: 0;
+font-weight: 3em;
+text-align: center;
+	
+}
+
+.popup .close {
+	position: absolute;
+	top: 20px;
+	right: 30px;
+	transition: all 200ms;
+	font-size: 30px;
+	font-weight: bold;
+	text-decoration: none;
+	color: #333;
+}
+
+.popup .close:hover {
+	color: #E5F720;
+}
+
+.popup .content-1{
+  font-size: 1em;  
+  text-align: center;
+}
+
+.content-2 {
+	
+	overflow: auto;
+	text-align: center;
+    font-size: 1em;
+}
+
+.show {
+	visibility: visible !important;
+	opacity: 100 !important;
+}
+
+#starRating li {
+	display: inline-block;
+}
+
+#play-again {
+	background-color: #141214;
+	padding: 0.3rem 0.2rem;
+	font-size: 1rem;
+	display: block;
+	margin: 0 auto;
+	width: 25%;
+	
+	color: #ffffff;
+	border-radius: 5px;
 }
