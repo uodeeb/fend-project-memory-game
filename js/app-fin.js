@@ -165,3 +165,15 @@ function startTimer(){
     },1000);
 }
 
+/* Build a moves counter function _________________ */
+function moveCounter(){
+    moves++;
+    counter.innerHTML = moves;
+    //start timer on first click
+    if(moves == 1){
+        second = 0;
+        minute = 0; 
+        hour = 0;
+        startTimer();
+    }
+}
