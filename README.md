@@ -2,19 +2,32 @@
 
 ## Table of Contents
 
-* [Instructions](#instructions)
+* [Player Instructions](#player instructions)
 * [Contributing](#contributing)
 
-## Instructions
+## Player Instructions
 
-The starter project has some HTML and CSS styling to display a static version of the Memory Game project. You'll need to convert this project from a static project to an interactive one. This will require modifying the HTML and CSS files, but primarily the JavaScript file.
+*   this matching game using animation effects to make it 
+    harder for you as a player to remember where you have 
+    seen the card before.
 
-To get started, open `js/app.js` and start building out the app's functionality
+*   before you play the game, player should take a minute 
+    to look thourghly to the cards and try to figure if they
+    were have animation, afterward player can start the game.
 
-For specific, detailed instructions, look at the project instructions in the [Udacity Classroom](https://classroom.udacity.com/me).
+*   your job as a player is to find an eight pair of matched 
+    cards in as less time and moves as possible.
+
 
 ## Contributing
 
-This repository is the starter code for _all_ Udacity students. Therefore, we most likely will not accept pull requests.
+This game is developed by Mohammad Allam based on a starter 
+project files from Udacity fend nanodegree program.
+
+this project is also based on different contributions come
+from different developers
+    -  Sandra Israel-Ovirih >>> https://medium.com/@sandraisraelo
+    - @saadquadri >>> https://github.com/saadq
+    - laura.enria@gmail.com >>>https://codepen.io/LauraEnria/pen/yjgPvR
 
 For details, check out [CONTRIBUTING.md](CONTRIBUTING.md).
