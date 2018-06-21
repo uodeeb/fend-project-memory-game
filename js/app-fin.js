@@ -37,14 +37,15 @@ B) Game logic !--------------------------------------------!
                 >game |restarts|
 ----------------------------------------------------
 ____________________________________________________
-/*TODO:  _________________ the real code _______________*/
+/*  _________________ the real code _______________*/
 /*TODO:  deck & card variables ___________*/
+
 let card = document.getElementsByClassName("card");
 let cards = Array.from(card);
 const deck = document.getElementById("card-deck");
-//console.log(cards);
 
 /*TODO:  move variables ___________*/
+
 let moves = 0;
 let movesCounter = document.querySelector(".moves");
 
@@ -53,23 +54,26 @@ const stars = document.querySelectorAll(".fa-star");
 let starsList = document.querySelectorAll(".stars li");
 
 /*TODO:  match & opencards variables ___________*/
+
 let matchedCard = document.getElementsByClassName("match");
 var openedCards = [];
 
 /*TODO:  winnwer message variables ___________*/
- let modal = document.getElementById("popup1")
- let closeicon = document.querySelector(".close");
-
+ 
+let modal = document.getElementById("popup1")
+let closeicon = document.querySelector(".close");
 
 /*TODO:  build a card display function ________________*/
+
 let showCard = function (){
     this.classList.toggle("open");
     this.classList.toggle("show");
     this.classList.toggle("disabled");
 };
 
- /*TODO:  build an opend cards on matched function ___________*/
- function openCard() {
+/*TODO:  build an opend cards on matched function ___________*/
+
+function openCard() {
     openedCards.push(this);
     let arrLeng = openedCards.length;
     if(arrLeng === 2){
@@ -81,7 +85,9 @@ let showCard = function (){
         }
     }
 };
+
 /*TODO:  build a match & unmatch function ________________*/
+
 function isAmatch(){
     openedCards[0].classList.add("match", "disabled");
     openedCards[1].classList.add("match", "disabled");
@@ -103,6 +109,7 @@ function notAmatch(){
 }
 
 /*TODO:  make cards enabled or disabled ___________________*/
+
 function disable(){
     Array.prototype.filter.call(cards, function(card){
         card.classList.add('disabled');
@@ -118,8 +125,8 @@ function enable(){
     });
 }
 
-
 /*TODO:  Build a moves counter function _________________ */
+
 function moveCounter(){
     moves++;
     movesCounter.innerHTML = moves;
@@ -130,7 +137,9 @@ function moveCounter(){
         hour = 0;
         startTimer();
     }
+
     /*TODO:  Build a star rating based on moves ________________*/
+
 if (moves > 8 && moves < 12){
     for( i= 0; i < 5; i++){
         if(i > 3){
@@ -162,6 +171,7 @@ else if ( moves > 23 && moves < 26){
 }
 
 /*TODO:  Build a timer function ____________________ */
+
 second = 0;
 minute = 0;
 hour = 0;
@@ -183,6 +193,7 @@ function startTimer(){
 }
 
 /*TODO:  buils a winner message function _____________*/
+
 function winMessage(){
     if (matchedCard.length == 16){
         clearInterval(interval);
@@ -190,7 +201,7 @@ function winMessage(){
         modal.classList.add("show");
 
         let starRating = document.querySelector(".stars").innerHTML;
-console.log(starRating)
+        
         document.getElementById("lastMove").innerHTML = moves;
         document.getElementById("lastRating").innerHTML = starRating;
         document.getElementById("endTime").innerHTML = endTime;
@@ -210,7 +221,9 @@ function restartPlay(){
     modal.classList.remove("show");
     startGame();
 }
+
 /*TODO:  Add an event listener to cards ____________*/
+
 for (let i = 0; i < cards.length; i++){
     card = cards[i];
     card.addEventListener("click", showCard);
@@ -262,8 +275,5 @@ function startGame(){
     hour = 0;
     var timer = document.querySelector(".timer");
     timer.innerHTML = "0 mins 0 secs";
-    clearInterval(interval);
-    
-
-   
+    clearInterval(interval);  
 }
