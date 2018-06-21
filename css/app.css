@@ -225,7 +225,8 @@ text-align: center;
 }
 
 #starRating li {
-	display: inline-block;
+	//display: inline-block;
+	list-style: none;
 }
 
 #play-again {
@@ -342,6 +343,12 @@ body{
 	widows: 600px;
 	font-size: 1.5rem;
 }
+.popup {
+	width: 70%;
+
+}
+.popup .content-1 .content-1{
+	font: 0.5em ;
 }
 /*____________ media query for small phones______________________________*/
 @media screen and (max-width: 360px){
