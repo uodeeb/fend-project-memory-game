@@ -15,7 +15,7 @@
     to look thourghly to the cards and try to figure if they
     were have animation, afterward player can start the game.
 
-*   your job as a player is to find an eight pair of matched 
+*   your job as a player is to find eight pairs of matched 
     cards in as less time and moves as possible.
 
 
