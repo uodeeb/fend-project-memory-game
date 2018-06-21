@@ -30,4 +30,7 @@ from different developers
     - @saadquadri >>> https://github.com/saadq
     - laura.enria@gmail.com >>>https://codepen.io/LauraEnria/pen/yjgPvR
 
+also I make some great use of the life webinar offered by 
+Udacity for fend student.
+
 For details, check out [CONTRIBUTING.md](CONTRIBUTING.md).
