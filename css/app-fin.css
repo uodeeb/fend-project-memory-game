@@ -47,12 +47,10 @@ h1 {
  */
 
 .deck {
-    width:500PX;
-    min-height: 500px;
-    //background: #666600;
+	width:600px;
+	
+	padding: 1rem;
 	background: rgba(51, 51, 0, 0.5);
-    //opacity: 0.75;
-	padding: 25px;
     border-radius: 10px;
     box-shadow: 12px 15px 20px 0 rgba(0, 0, 0, 0.5);
     display: flex;
@@ -64,10 +62,10 @@ h1 {
 }
 
 .deck .card {
+	margin: 5px;
 	opacity: none;
-    height: 100px;
-    width: 100px;
-    //background: #2e3d49;
+    height: 125px;
+    width: 125px;
     font-size: 0;
     color: #ffffff;
     border-radius: 8px;
@@ -158,7 +156,6 @@ h1 {
 
 .timer {
     float: right;
-	display: inline-block;
 	margin: 0 1rem;
 }
 
@@ -335,9 +332,69 @@ footer{
   
 }
 .s-icon {
- display:inline;
- padding: 10px;
-       box-shadow: 5px 2px 20px 0 rgba(255, 255, 255, 0.25);
-        width:45px;
-        height:45px;
+ 	padding: 10px;
+    box-shadow: 5px 2px 20px 0 rgba(255, 255, 255, 0.25);
+	width:45px;
+	height:45px;
+}
+
+/*____________ tablet______________________________*/
+@media screen and (max-width: 768px){
+	body{
+		font-size: 2rem;
+		
+	}
+	.container{
+		background-color: #333;
+		width: 100%;
+		height: 100%;
+		
+	}
+
+	.deck{
+		width: 600px;
+		
+	}
+.score-panel{
+	widows: 600px;
+	font-size: 1.5rem;
+}
+
+}
+/*____________ small phones______________________________*/
+@media screen and (max-width: 360px){
+body {
+    font-family:'Abel', sans-serif;
+	font-size: 10px;
+	}
+
+.container{
+	background-color: #333;
+	height: 100%;
+	background-repeat: no-repeat;
+    background-size: cover;
+
+	font-size: 16px;
+}
+.score-panel .restart {
+margin-right: 5px;
+}
+.deck{
+	width: 300px;
+	height: 300px;
+}
+.deck .card {
+	margin: 0;
+	width: 60px;
+	height: 60px;	
+}
+
+.score-panel{
+	width: 300px;
+	font-size: 16px;
+}
+
+.timer{
+	margin: 0;
+}
 }

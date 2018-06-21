@@ -3,7 +3,9 @@
 <head>
     <meta charset="utf-8">
     <title>Matching Game</title>
-    <meta name="description" content="">
+    <meta name="description" content="A matching game" />
+    <meta name="author" content="Mohammad Allam">
+    <meta name="viewport" content="width=device-width, minimum-scale=1.0, initial-scale=1.0, user-scalable=yes">
     <link rel="stylesheet prefetch" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.1/css/font-awesome.min.css">
     <link rel="stylesheet prefetch" href="https://fonts.googleapis.com/css?family=Coda">
     <link href="https://fonts.googleapis.com/css?family=Abel" rel="stylesheet">
@@ -92,16 +94,19 @@
                      <h3>***** YOU ARE A WINNER *****</h3>
                 </div>
                 <div class="content-2">
-                    <p>You made: (<span id=finalMove> </span>) moves </p>
-                    <p>Your best time: (<span id=totalTime> </span>)</p>
-                    <p>Your rating:  <span id=starRating></span></p>
+                    <p>You made: (<span id="lastMove"> </span>) moves </p>
+                    <p>Your best time: (<span id="endTime"> </span>)</p>
+                    <p>Your rating:  <span id="lastRating"></span></p>
                 </div>
-                <button id="play-again"onclick="playAgain()">
+                <button id="play-again"onclick="restartPlay()">
                     Play again </a>
                 </button>
     </div>
 </div>
+
+
 <footer class="social-icons">
+    
     <div id="social">
         <a href="https://www.facebook.com/uodeeb" ><img class="s-icon" src="svg/svg/006-facebook-logo.svg"  alt="facebook icon"></a>    
         <a href="https://twitter.com/uodeeb"><img  class="s-icon" src="svg/svg/009-twitter.svg"  alt="twitter icon"></a>
