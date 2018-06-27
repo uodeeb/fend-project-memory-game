@@ -75,56 +75,45 @@ let showCard = function (){
 
 function openCard() {
     openedCards.push(this);
-    let arrLeng = openedCards.length;
-    if(arrLeng === 2){
+    if(openedCards.length === 2){
         moveCounter();
         if(openedCards[0].type === openedCards[1].type){
-           isAmatch();
+            openedCards[0].classList.add("match", "disabled");
+            openedCards[1].classList.add("match", "disabled");
+            openedCards[0].classList.remove("show", "open", "no-event");
+            openedCards[1].classList.remove("show", "open", "no-event");
+            openedCards = [];
         } else {
-            notAmatch();
+            openedCards[0].classList.add("unmatched");
+            openedCards[1].classList.add("unmatched");
+        lockedCards();
+        setTimeout(function(){
+            openedCards[0].classList.remove("show", "open", "no-event","unmatched");
+            openedCards[1].classList.remove("show", "open", "no-event","unmatched");
+            activeCards();
+            openedCards = [];
+            },1100);
         }
     }
 };
 
-/*TODO:  build a match & unmatch function ________________*/
 
-function isAmatch(){
-    openedCards[0].classList.add("match", "disabled");
-    openedCards[1].classList.add("match", "disabled");
-    openedCards[0].classList.remove("show", "open", "no-event");
-    openedCards[1].classList.remove("show", "open", "no-event");
-    openedCards = [];
-}
+/*TODO:  make cards locked or active ___________________*/
 
-function notAmatch(){
-    openedCards[0].classList.add("unmatched");
-    openedCards[1].classList.add("unmatched");
-    disable();
-    setTimeout(function(){
-        openedCards[0].classList.remove("show", "open", "no-event","unmatched");
-        openedCards[1].classList.remove("show", "open", "no-event","unmatched");
-        enable();
-        openedCards = [];
-    },1100);
-}
-
-/*TODO:  make cards enabled or disabled ___________________*/
-
-function disable(){
-    Array.prototype.filter.call(cards, function(card){
+let lockedCards = function (){
+    for (card of cards){
         card.classList.add('disabled');
-    });
+    }
 }
 
-function enable(){
-    Array.prototype.filter.call(cards, function(card){
+let activeCards = function (){
+    for (card of cards){
         card.classList.remove('disabled');
         for(let i = 0; i < matchedCard.length; i++){
             matchedCard[i].classList.add("disabled");
         }
-    });
+    };
 }
-
 /*TODO:  Build a moves counter function _________________ */
 
 function moveCounter(){
