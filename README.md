@@ -29,7 +29,7 @@ in useful way while maintaining thier visual memory alerted.
 
 *   This project was built using pure javascript.
 
-*   This project used[Font awesome](https://maxcdn.bootstrapcdn.com/font-awesome/4.6.1/css/font-awesome.min.css) library for card sympols.
+*   This project used [Font awesome](https://maxcdn.bootstrapcdn.com/font-awesome/4.6.1/css/font-awesome.min.css) library for card sympols.
 
 *   Responsive design of the project on different screens
     built using [media queries](https://developer.mozilla.org/en-US/docs/Web/CSS/Media_Queries/Using_media_queries) and [flexbox grid.](http://flexboxgrid.com/)
@@ -54,6 +54,6 @@ For details, check out [CONTRIBUTING.md](CONTRIBUTING.md).
 *   This project used the code of these developers, take a look
     at their lovely work.
 
-    -   [Sandra Israel-Ovirih] (https://medium.com/@sandraisraelo)
-    -   [@saadquadri]  (https://github.com/saadq)
-    -   [laura.enria@gmail.com](https://codepen.io/LauraEnria/pen/yjgPvR)
+    -   [Sandra Israel-Ovirih](https://medium.com/@sandraisraelo)
+    -   [@saadquadri](https://github.com/saadq)
+    -   [laura.enria](https://codepen.io/LauraEnria/pen/yjgPvR)
